@@ -1,0 +1,41 @@
+
+  
+  .tlt-rgm-justify-box, .tlt-rgm-justify-box-2 {
+    width: 206px;
+    height: 176px;
+    border-bottom: 1px dashed #ccc;
+    text-align: justify;
+    display: inline-block;
+    margin-right: 200px;
+    margin-left: 100px;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+
+    .tlt-rgm-justify-box-bar {
+      display: inline-block;
+      width: 20px;
+      background-color: red;
+    }
+
+    .tltjb-note {
+      background: white;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 10px;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+

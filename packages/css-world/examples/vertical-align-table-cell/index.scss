@@ -1,0 +1,38 @@
+
+.vertical-align-table-cell {
+
+  .vantl-box {
+    height: 128px;
+    display: table-cell;
+    border: 1px solid black;
+
+    img {
+      height: 90px;
+      border: 1px solid red;
+      vertical-align: middle;
+    }
+  }
+
+  .vantl-box-1 {
+    height: 128px;
+    display: table-cell;
+    border: 1px solid black;
+    vertical-align: middle;
+
+    img {
+      height: 90px;
+      border: 1px solid red;
+    }
+  }
+
+  .vantl-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

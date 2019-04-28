@@ -1,0 +1,39 @@
+
+.alive-3-dot {
+  font-size: 13px;
+
+  dot {
+    display: inline-block;
+    height: 1em;
+    line-height: 1;
+    text-align: left;
+    overflow: hidden;
+    margin-left: 4px;
+
+    &:before {
+      display: inline-block;
+      content: '.\A..\A...\A....';
+      white-space: pre-wrap;
+      animation: dot 4s infinite step-start both;
+      transform: translateY(0em);
+    }
+  }
+
+  @keyframes dot {
+    0% { transform: translateY(0em); }
+    25% { transform: translateY(-1em); }
+    50% { transform: translateY(-2em); }
+    75% { transform: translateY(-3em); }
+  }
+}
+
+.a3dt-note {
+  background: white;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}

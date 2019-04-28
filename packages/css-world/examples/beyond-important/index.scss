@@ -1,0 +1,14 @@
+
+.beoi-content {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.beyond-important {
+  .beoi-content {
+    width: 500px !important;
+    max-width: 300px;
+  }
+}

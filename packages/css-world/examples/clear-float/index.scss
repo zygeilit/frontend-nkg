@@ -1,0 +1,13 @@
+.float-container {
+  background-color: aqua;
+
+  .float-element {
+    float: left;
+  }
+
+  .clear:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

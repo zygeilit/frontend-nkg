@@ -1,0 +1,25 @@
+
+.calculating-percentage-margins {
+  background: #abec77;
+  height: 100vh;
+
+  .calculating-percentage-margins-content {
+    margin-top: 10%;
+    background: #90bbe7;
+    display: inline-block;
+    width: 400px;
+    height: 150px;
+  }
+
+  .capm-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

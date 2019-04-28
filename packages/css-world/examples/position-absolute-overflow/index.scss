@@ -1,0 +1,55 @@
+
+.position-absolute-overflow-container {
+  
+  .position-absolute-overflow {
+    overflow: hidden;
+    background-color: red;
+    height: 10px;
+    img {
+      position: absolute;
+      width: 300px;
+    }
+  }
+
+  .position-absolute-overflow-1 {
+    overflow: hidden;
+    background-color: red;
+    position: relative;
+    height: 10px;
+    img {
+      position: absolute;
+      width: 300px;
+    }
+  }
+
+  .position-absolute-overflow-2 {
+    overflow: hidden;
+    background-color: red;
+    height: 10px;
+    img {
+      position: absolute;
+      width: 300px;
+    }
+  }
+
+  .position-absolute-overflow-3 {
+    overflow: auto;
+    background-color: red;
+    height: 100px;
+    img {
+      position: absolute;
+      width: 300px;
+    }
+  }
+
+  .paoc-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

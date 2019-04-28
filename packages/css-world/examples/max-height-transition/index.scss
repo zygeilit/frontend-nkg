@@ -1,0 +1,16 @@
+
+.max-height-transition {
+  
+  .mhtan-scale-block-maxheight {
+  	display: inline-block;
+  	background: aqua;
+  	width: 150px;
+  	height: 300px;
+  	max-height: 400px;
+  	transition: max-height .25s;
+
+  	&:hover {
+  	  max-height: 50px;
+  	}
+  }
+}

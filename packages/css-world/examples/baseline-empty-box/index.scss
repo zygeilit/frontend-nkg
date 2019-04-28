@@ -1,0 +1,75 @@
+
+.baseline-empty-box-container {
+  font-size: 20px;
+
+  .baseline-empty-box {
+    .bley-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #cccccc85;
+    }
+  }
+
+  .baseline-empty-box-1 {
+    line-height: 0;
+    .bley-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #cccccc85;
+    }
+  }
+
+  .baseline-empty-box-2 {
+    font-size: 0;
+    .bley-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #cccccc85;
+    }
+  }
+
+  .baseline-empty-box-3 {
+    .bley-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #cccccc85;
+    }
+  }
+
+  .baseline-empty-box-4 {
+    .bley-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #cccccc85;
+      vertical-align: bottom;
+    }
+  }
+
+  div[class^=baseline-empty-box] {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding-right: 30px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  .bley-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .bley-note.bley-note-pre {
+    font-size: 13px;
+  }
+}

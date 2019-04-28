@@ -1,0 +1,39 @@
+{
+  "name": "css-world",
+  "version": "1.0.5",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "italent-thunder start",
+    "build": "italent-thunder build prod --mode development",
+    "build-prod": "italent-thunder build prod",
+    "lib": "stl build lib",
+    "examples": "sbl start --port 9001",
+    "server": "node ./server.js 8080"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "peerDependencies": {
+    "react": "16.x.x",
+    "react-dom": "16.x.x"
+  },
+  "devDependencies": {
+    "@beisen/ts": "1.x.x",
+    "@beisen/build": "1.x.x",
+    "@beisen/babel": "7.x.x",
+    "@beisen/storybook": "1.x.x",
+    "@beisen/storybook-react": "4.x.x",
+    "@beisen/italent-thunder": "^1.x.x",
+    "@beisen/webpack": "4.x.x",
+    "commitizen": "^2.x.x",
+    "react": "16.x.x",
+    "react-dom": "16.x.x"
+  },
+  "dependencies": {
+    "cron": "^1.6.0",
+    "request": "^2.88.0"
+  }
+}

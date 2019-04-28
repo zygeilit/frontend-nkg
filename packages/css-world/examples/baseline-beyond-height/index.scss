@@ -1,0 +1,73 @@
+
+.baseline-beyond-height-container {
+
+  .baseline-beyond-height {
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    background-color: green;
+    line-height: 32px;
+
+    span {
+      font-size: 14px;
+      background-color: red;
+    }
+
+    span.blbh-large {
+      font-size: 24px;
+      background-color: #ccc;
+    }
+  }
+
+  .baseline-beyond-height-1 {
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    background-color: green;
+    line-height: 32px;
+
+    span {
+      font-size: 24px;
+      background-color: red;
+    }
+
+    span.blbh-large {
+      font-size: 24px;
+      background-color: #ccc;
+    }
+  }
+
+  .baseline-beyond-height-2 {
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 24px;
+    background-color: green;
+    line-height: 32px;
+
+    span {
+      font-size: 14px;
+      background-color: red;
+      vertical-align: top;
+    }
+
+    span.blbh-large {
+      font-size: 24px;
+      background-color: #ccc;
+    }
+  }
+
+  .blbh-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .blbh-note.blbh-note-top {
+    margin-top: 30px;
+  }
+}

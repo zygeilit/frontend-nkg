@@ -1,0 +1,39 @@
+
+.split-line-container {
+  
+  [class^=split-line] {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .split-line-1 {
+    .split {
+      display: inline-block;
+      border-left: 1px black solid;
+    }
+  }
+
+  .split-line-2 {
+    .split {
+      display: inline-block;
+      &:before {
+        content: '';
+        display: inline-block;
+        border-left: 1px black solid;
+        padding: 6px 3px 1px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+.split-line-note {
+  background: white;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}

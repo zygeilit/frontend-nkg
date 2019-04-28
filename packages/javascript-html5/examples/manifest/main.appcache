@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+# 2012-02-21 v1.0.0
+# 更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法
+
+/main.js
+/index.css
+/logo.gif
+
+NETWORK:
+no-cache-data.json
+no-cache-css.json
+
+FALLBACK:
+/html5/ /404.html

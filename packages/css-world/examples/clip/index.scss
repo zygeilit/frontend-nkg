@@ -1,0 +1,29 @@
+
+.clip-container {
+  height: 300px;
+  overflow: auto;
+  background-color: #ccc;
+  position: relative;
+
+  img {
+    height: 400px;
+    position: absolute;
+    clip: rect(50px, 550px, 200px, 250px);
+  }
+
+  input {
+    margin-left: 100px;
+    margin-top: 50px;
+  }
+
+  .clip-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

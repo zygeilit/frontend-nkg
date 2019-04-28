@@ -1,0 +1,158 @@
+
+.nth-item-length-container {
+
+  .nth-item-boxes {
+    counter-reset: num;
+
+    .nthlg-box {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background-color: red;
+      border-radius: 6px;
+      margin: 40px 6px 0 20px;
+
+      &:first-child:nth-last-child(6),
+      &:first-child:nth-last-child(6) ~ .nthlg-box {
+        position: relative;
+        counter-increment: num;
+
+        &:before {
+          content: counter(num);
+          display: inline-block;
+          position: absolute;
+          border-radius: 100%;
+          height: 16px;
+          width: 16px;
+          background-color: blue;
+          right: -4px;
+          top: -4px;
+          font-size: 12px;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .nth-item-boxes-large {
+    counter-reset: num;
+
+    .nthlg-box {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background-color: red;
+      border-radius: 6px;
+      margin: 40px 6px 0 20px;
+
+      &:first-child:nth-last-child(n+4),
+      &:first-child:nth-last-child(n+4) ~ .nthlg-box {
+        position: relative;
+        counter-increment: num;
+
+        &:before {
+          content: counter(num);
+          display: inline-block;
+          position: absolute;
+          border-radius: 100%;
+          height: 16px;
+          width: 16px;
+          background-color: blue;
+          right: -4px;
+          top: -4px;
+          font-size: 12px;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .nth-item-boxes-min {
+    counter-reset: num;
+
+    .nthlg-box {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background-color: red;
+      border-radius: 6px;
+      margin: 40px 6px 0 20px;
+
+      &:first-child:nth-last-child(-n+2),
+      &:first-child:nth-last-child(-n+2) ~ .nthlg-box {
+        position: relative;
+        counter-increment: num;
+
+        &:before {
+          content: counter(num);
+          display: inline-block;
+          position: absolute;
+          border-radius: 100%;
+          height: 16px;
+          width: 16px;
+          background-color: blue;
+          right: -4px;
+          top: -4px;
+          font-size: 12px;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .nth-item-boxes-scope {
+    counter-reset: num;
+
+    .nthlg-box {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background-color: red;
+      border-radius: 6px;
+      margin: 40px 6px 0 20px;
+
+      &:first-child:nth-last-child(n+2):nth-last-child(-n+8),
+      &:first-child:nth-last-child(n+2):nth-last-child(-n+8) ~ .nthlg-box {
+        position: relative;
+        counter-increment: num;
+
+        &:before {
+          content: counter(num);
+          display: inline-block;
+          position: absolute;
+          border-radius: 100%;
+          height: 16px;
+          width: 16px;
+          background-color: blue;
+          right: -4px;
+          top: -4px;
+          font-size: 12px;
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .nthlg-note {
+    &:first-child {
+      padding: 0;
+    }
+
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .nthlg-note-large {
+    padding-top: 40px;
+    font-size: 20px;
+  }
+}

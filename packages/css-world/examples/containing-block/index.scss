@@ -1,0 +1,107 @@
+
+.containing-block-container {
+  font-size: 13px;
+
+  .containing-block,
+  .containing-block-1 {
+    display: inline-block;  
+  }
+
+  .containing-block {
+    margin: 50px;
+
+    .cinb-tip {
+      display: inline-block;
+      position: relative;
+      background-color: #ccc;
+      padding: 2px 4px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover:before,
+      &:hover:after {
+        display: inline-block;
+        background-color: black;
+        position: absolute;
+        background-color: transparent;
+        content: '';
+      }
+
+      &:hover:before {
+        width: 0;
+        height: 0;
+        border-top: 10px solid black;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 0;
+        top: -60%;
+        left: 30%;
+      }
+      &:hover:after {
+        content: attr(tip);
+        background-color: black;
+        color: white;
+        padding: 2px 4px;
+        top: -140%;
+        left: 0;
+      }
+    }
+  }
+
+  .containing-block-1 {
+    margin: 50px;
+
+    .cinb-tip {
+      display: inline-block;
+      position: relative;
+      background-color: #ccc;
+      padding: 2px 4px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover:before,
+      &:hover:after {
+        display: inline-block;
+        background-color: black;
+        position: absolute;
+        background-color: transparent;
+        content: '';
+      }
+
+      &:hover:before {
+        width: 0;
+        height: 0;
+        border-top: 10px solid black;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 0;
+        top: -60%;
+        left: 30%;
+      }
+      &:hover:after {
+        content: attr(tip);
+        background-color: black;
+        white-space: nowrap;
+        color: white;
+        padding: 2px 4px;
+        top: -140%;
+        left: 0;
+      }
+    }
+  }
+
+  .cinb-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

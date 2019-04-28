@@ -1,0 +1,102 @@
+
+.margin-merge-container {
+
+  div[class^=margin-merge-] {
+    background-color: #ff00006e;
+    border: 1px solid #ff00006e;
+  }
+
+  div[class^=mme-] {
+    background-color: #cccccc;
+  }
+
+  .margin-merge-1 {
+    .mme-1 {
+      margin-bottom: 50px;
+    }
+    .mme-2 {
+      margin-top: 20px;
+    }
+  }
+
+  .margin-merge-2 {
+    .mme-1 {
+      margin-top: 20px;
+    }
+    .mme-2 {
+      margin-top: 50px;
+    }
+  }
+
+  .margin-merge-3 {
+    .mme-1 {
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .margin-merge-4 {
+    .mme-1 {
+      margin-bottom: 50px;
+    }
+    .mme-2 {
+      margin-top: -30px;
+    }
+  }
+
+  .margin-merge-5 {
+    .mme-1 {
+      margin-top: -20px;
+    }
+    .mme-2 {
+      margin-top: 50px;
+    }
+  }
+
+  .margin-merge-6 {
+    .mme-1 {
+      margin-top: -40px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .margin-merge-7 {
+    .mme-1 {
+      margin-top: -20px;
+    }
+    .mme-2 {
+      margin-bottom: -50px;
+    }
+  }
+
+  .margin-merge-8 {
+    .mme-1 {
+      margin-top: -20px;
+    }
+    .mme-2 {
+      margin-bottom: -50px;
+    }
+  }
+
+  .margin-merge-9 {
+    .mme-1 {
+      margin-top: -20px;
+      margin-top: -50px;
+    }
+  }
+
+  .mmcr-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .mmcr-top {
+    padding-top: 26px;
+  }
+}

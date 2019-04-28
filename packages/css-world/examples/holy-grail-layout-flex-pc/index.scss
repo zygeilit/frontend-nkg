@@ -1,0 +1,47 @@
+
+.holy-grail-layout-flex-pc {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #9a9696;
+
+  .holy-grail-container {
+    display: flex;
+    flex: 1;
+
+    .holy-grail-column {}
+
+    .holy-grail-center {
+      background: yellow;
+      flex: 1;
+    }
+    .holy-grail-left {
+      background: #cccccc;
+      flex: 0 0 12em;
+    }
+    .holy-grail-right {
+      background: blue;
+      flex: 0 0 12em;
+      order: -1;
+    }
+  }
+
+  .holy-grail-header, .holy-grail-footer {
+    background: #9e4545;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .hglf-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

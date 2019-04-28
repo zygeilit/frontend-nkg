@@ -1,0 +1,13 @@
+.margin-prevent-merge-container {
+
+  .mpmcr-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  } 
+}

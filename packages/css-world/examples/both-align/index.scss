@@ -1,0 +1,34 @@
+
+.both-align-container {
+
+  .both-align-wrapper {
+    border: 1px solid black;
+    display: inline-block;
+    font-size: 0;
+
+    .both-align {
+      padding: 0;
+      display: inline-block;
+      margin-right: -10px;
+
+      .both-align-block {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        margin-right: 10px;
+        background-color: red;
+      }
+    }
+  }
+
+  .balnc-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

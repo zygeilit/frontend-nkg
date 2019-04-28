@@ -1,0 +1,111 @@
+
+[class^=objfit-container-] .objfit-name {
+  font-size: 40px;
+  position: absolute;
+  color: red;
+}
+
+.objfit-container-fill {
+  
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+
+  img.objfit-left {
+    width: 40%;
+    height: 100%;
+    object-fit: fill;
+  }
+
+  p.objfit-right {
+    width: 60%;
+    height: 100%;
+    background: blue;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.objfit-container-contain {
+  
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+
+  img.objfit-left {
+    width: 40%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  p.objfit-right {
+    width: 60%;
+    height: 100%;
+    background: blue;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.objfit-container-cover {
+  
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+
+  img.objfit-left {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  p.objfit-right {
+    width: 60%;
+    height: 100%;
+    background: blue;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.objfit-container-none {
+  
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+
+  img.objfit-left {
+    width: 40%;
+    height: 100%;
+    object-fit: none;
+  }
+
+  p.objfit-right {
+    width: 60%;
+    height: 100%;
+    background: blue;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.objfit-container-scale-down {
+  
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+
+  img.objfit-left {
+    width: 40%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+
+  p.objfit-right {
+    width: 60%;
+    height: 100%;
+    background: blue;
+    margin: 0;
+    overflow: hidden;
+  }
+}

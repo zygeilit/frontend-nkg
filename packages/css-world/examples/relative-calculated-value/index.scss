@@ -1,0 +1,19 @@
+
+.relative-calculated-value {
+
+  p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .recve-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }  
+}

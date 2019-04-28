@@ -1,0 +1,51 @@
+
+.which-box-can-margin-auto-container {
+
+  .ma-row {
+    border: 1px dashed blue;
+    margin-bottom: 6px;
+  }
+  
+  .ma-row > div {
+    background-color: #cccccc;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    margin: 0 auto;
+    width: 200px;
+  }
+
+  .ma-block {
+    display: block;
+  }
+  .ma-inline {
+    display: inline;
+  }
+  .ma-inline-block {
+    display: inline-block;
+  }
+  .ma-table {
+    display: table;
+  }
+  .ma-inline-table {
+    display: inline-table;
+  }
+  .ma-list-item {
+    display: list-item;
+  }
+
+  .ma-no-width {
+    width: auto !important;
+  }
+
+  .ma-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

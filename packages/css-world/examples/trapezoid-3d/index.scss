@@ -1,0 +1,32 @@
+
+.tranpezoid-3d-container {
+
+	div[class^=tranpezoid] {
+	  margin: 0 0 40px 200px;
+	}
+
+	.tranpezoid-3d-1 {
+		width: 200px;
+		height: 100px;
+		background: #ddd;
+		transform: perspective(100px) rotateX(30deg);
+	}
+
+	.tranpezoid-3d-2 {
+		width: 200px;
+		height: 100px;
+		background: #ddd;
+		transform: perspective(40px) rotateX(30deg);
+	}
+}
+
+.trapezoid-3d-note {
+  background: white;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}

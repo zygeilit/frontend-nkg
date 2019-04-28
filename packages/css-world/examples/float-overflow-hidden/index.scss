@@ -1,0 +1,30 @@
+
+.float-overflow-hidden-container {
+
+  .ftoh-box {
+    width: 500px;
+    border: 1px solid #ccc;
+
+    img {
+      width: 140px;
+      height: 100px;
+      float: left;
+      margin-right: 10px;
+    }
+    .ftoh-box-content {
+      overflow: hidden;
+      background-color: #ff000057;
+    }
+  }
+
+  .ftoh-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

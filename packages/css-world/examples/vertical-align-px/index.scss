@@ -1,0 +1,23 @@
+
+.vercital-align-px {
+  font-size: 16px;
+
+  .vanpx-icon {
+    display: inline-block;
+    vertical-align: -3px;
+    background: url(./dropdown_1.png) no-repeat;
+    height: 2ex;
+    width: 2ex;
+  }
+
+  .vanpx-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

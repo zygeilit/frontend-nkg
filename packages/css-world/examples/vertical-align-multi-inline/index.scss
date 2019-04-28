@@ -1,0 +1,30 @@
+
+.vertical-align-multi-inline-container {
+
+  .vertical-align-multi-inline {
+    line-height: 168px;
+    background-color: #ccc;
+    text-align: center;
+
+    p {
+      display: inline-block;
+      width: 80%;
+      line-height: 24px;
+      vertical-align: middle;
+      background-color: #ff000073;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .vtlami-note {
+      background: white;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 10px;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  } 
+}

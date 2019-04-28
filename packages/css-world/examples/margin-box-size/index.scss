@@ -1,0 +1,28 @@
+.margin-box-size {
+
+  [class^=mbse-inline-box-] {
+    border-bottom: 1px solid black;
+  }
+
+  .mbse-inline-box-1 {
+    border: 1px solid red;
+    margin: 50px;
+  }
+
+  .mbse-inline-box-2 {
+    border: 1px solid red;
+    margin: 200px;
+    display: block;
+  }
+
+  .bmse-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

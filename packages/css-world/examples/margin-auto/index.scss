@@ -1,0 +1,151 @@
+
+.margin-auto {
+
+  .mao-note {
+    background: white;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  & > div[class^=margin-auto-] {
+    margin-bottom: 20px;
+  }
+
+  .margin-auto-normal-block {
+    height: 100px;
+    background: #90bbe7;
+
+    .margin-auto-box {
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+      margin: auto;
+    }
+  }
+
+  .margin-auto-position-margin-auto {
+    height: 100px;
+    background: #90bbe7;
+    position: relative;
+
+    .margin-auto-box {
+      position: absolute;
+      background: #abec77;
+
+      width: 50px;
+      height: 50px;
+
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      margin: auto;
+    }
+  }
+
+  .margin-auto-position-transform {
+    height: 100px;
+    background: #90bbe7;
+    position: relative;
+
+    .margin-auto-box {
+      position: absolute;
+      display: inline-block;
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .margin-auto-table-cell {
+    height: 100px;
+    width: 600px;
+    background: #90bbe7;
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+
+    .margin-auto-box {
+      display: inline-block;
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .margin-auto-flex {
+    height: 100px;
+    background: #90bbe7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .margin-auto-box {
+      display: inline-block;
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .margin-auto-floater {
+    height: 100px;
+    background: #90bbe7;
+
+    .margin-auto-floater-block {
+      background: transparent;
+      float: left;
+      height: 50%;
+      width: 100%;
+      margin-bottom: -25px;
+    }
+
+    .margin-auto-box {
+      display: block;
+      margin: 0 auto;
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+      clear: both;
+    }
+  }
+
+  .margin-auto-line-height {
+    background: #90bbe7;
+    line-height: 100px;
+  }
+
+  .margin-auto-line-height-image {
+    background: #90bbe7;
+    line-height: 100px;
+    text-align: center;
+
+    .margin-auto-box-image {
+      width: 60px;
+      vertical-align: middle;
+    }
+  }
+
+  .margin-auto-grid {
+    height: 100px;
+    background: #90bbe7;
+    display: grid;
+
+    .margin-auto-box {
+      background: #abec77;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+  

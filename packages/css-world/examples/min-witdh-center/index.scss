@@ -1,0 +1,20 @@
+
+.css2-width-container {
+  
+  .css2-width-box-min-content {
+    background: #cccccc;
+    width: min-content;
+    margin: 0 auto;
+
+    .css2w-image {
+      background: url(http://img18.3lian.com/d/file/201709/21/a05161a4469dc5ef8be88ee217d53d92.jpg);
+      background-size:100% 100%;
+      display: inline-block;
+      width: 200px;
+      height: 230px;
+    }
+    .css2w-text {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.quotes-container {
+  font-size: 13px;
+
+  div[class^=quotes-] {
+    &:before { content: open-quote; }
+    &:after { content: close-quote; }
+  }
+
+  .quotes-1 {
+    quotes: '提问："' '"';
+  }
+  .quotes-2 {
+    quotes: '回答："' '"';
+  }
+}
