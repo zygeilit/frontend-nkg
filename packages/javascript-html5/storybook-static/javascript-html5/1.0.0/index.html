@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Storybook</title><style>html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }</style><script>try {
+    if (window.parent !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      window.__VUE_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+    }
+  } catch (e) {
+    console.warn('unable to connect to parent frame for connecting dev tools');
+  }</script><script>var ohNoWeAreOnIE10 = false
+  /*@cc_on
+    if (/^10/.test(@_jscript_version)) {
+      ohNoWeAreOnIE10 = true
+    }
+  @*/
+  if (ohNoWeAreOnIE10) {
+    var insertBeforeIE10 = Element.prototype.insertBefore
+    Element.prototype.insertBefore = function () {
+      var args = Array.prototype.slice.call(arguments)
+      // @emotion/sheet 模块使用了 Element.insertBefore 函数，传入第二个参数是 undefined
+      // IE10 下，第二个参数如果是 undefined 会报错
+      if (args.length >= 2 && args[1] === undefined) args[1] = null;
+      return insertBeforeIE10.apply(this, args)
+    }
+  }</script><style>/* 只在IE10浏览器中生效，解决Storybook不支持IE10的问题 */
+  @media screen and (min-width:0\0) {
+    /* 根容器 */
+    .SplitPane.vertical { }
+    /* 左侧组件展示列表 */
+    .SplitPane.vertical .Pane.vertical.Pane1 {
+      height: 100%;
+      float: left;
+    }
+    /* 中间改变容器大小的组件 */
+    .SplitPane.vertical .Resizer.vertical {
+      height: 100%;
+      float: left;
+    }
+    /* 右侧容器 */
+    .SplitPane.vertical .Pane.vertical.Pane2 {
+      width: 700px;
+      height: 100%;
+      float: left;
+    }
+    /* 右侧的示例容器，不包括底部的工具 */
+    .SplitPane.vertical .Pane.vertical.Pane2 .Pane.horizontal.Pane1 {
+      height: 70%;
+    }
+  }</style></head><body><div id="root"></div><script src="runtime~main.6ac4c33d73ae9704bbb9.bundle.js"></script><script src="vendors~main.c99c7fbda85e4e595e26.bundle.js"></script><script src="main.054ac1977aa2e6330129.bundle.js"></script></body></html>
