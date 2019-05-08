@@ -29,42 +29,63 @@ http.createServer(function (req, res) {
   // parse URL
   const parsedUrl = url.parse(req.url);
 
-  // extract URL path
-  // Avoid https://en.wikipedia.org/wiki/Directory_traversal_attack
-  // e.g curl --path-as-is http://localhost:9000/../fileInDanger.txt
-  // by limiting the path to current directory only
-  const sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
-  let pathname = path.join(__dirname, 'storybook-static/javascript-html5/1.0.0', sanitizePath);
-
-  fs.exists(pathname, function (exist) {
-    if(!exist) {
-      // if the file is not found, return 404
-      res.statusCode = 404;
-      res.end(`File ${pathname} not found!`);
-      return;
-    }
-
-    // if is a directory, then look for index.html
-    if (fs.statSync(pathname).isDirectory()) {
-      pathname += '/index.html';
-    }
-
-    // read file from file system
-    fs.readFile(pathname, function(err, data){
-      if(err){
-        res.statusCode = 500;
-        res.end(`Error getting the file: ${err}.`);
-      } else {
-        // based on the URL path, extract the file extention. e.g. .js, .doc, ...
-        const ext = path.parse(pathname).ext;
-        // if the file is found, set Content-type and send data
-        res.setHeader('Content-type', mimeType[ext] || 'text/plain' );
-        res.end(data);
-      }
+  if (req.url.match(/event-source/)) {
+    
+    res.writeHead(200, {
+      "Content-Type":"text/event-stream",
+      "Cache-Control":"no-cache",
+      "Connection":"keep-alive",
+      "Access-Control-Allow-Origin": '*',
     });
-  });
+    res.write("retry: 10000\n");
+    res.write("event: connecttime\n");
+    res.write("data: " + (new Date()) + "\n\n");
+    res.write("data: " + (new Date()) + "\n\n");
 
+    interval = setInterval(function () {
+      res.write("data: " + (new Date()) + "\n\n");
+    }, 1000);
 
+    return req.connection.addListener("close", function () {
+      clearInterval(interval);
+    }, false);
+  } else {
+
+    // extract URL path
+    // Avoid https://en.wikipedia.org/wiki/Directory_traversal_attack
+    // e.g curl --path-as-is http://localhost:9000/../fileInDanger.txt
+    // by limiting the path to current directory only
+    const sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
+    let pathname = path.join(__dirname, 'storybook-static/javascript-html5/1.0.0', sanitizePath);
+
+    fs.exists(pathname, function (exist) {
+      if(!exist) {
+        // if the file is not found, return 404
+        res.statusCode = 404;
+        res.end(`File ${pathname} not found!`);
+        return;
+      }
+
+      // if is a directory, then look for index.html
+      if (fs.statSync(pathname).isDirectory()) {
+        pathname += '/index.html';
+      }
+
+      // read file from file system
+      fs.readFile(pathname, function(err, data){
+        if(err){
+          res.statusCode = 500;
+          res.end(`Error getting the file: ${err}.`);
+        } else {
+          // based on the URL path, extract the file extention. e.g. .js, .doc, ...
+          const ext = path.parse(pathname).ext;
+          // if the file is found, set Content-type and send data
+          res.setHeader('Content-type', mimeType[ext] || 'text/plain' );
+          res.end(data);
+        }
+      });
+    });
+  }
 }).listen(parseInt(port));
 
 console.log(`Server listening on port ${port}`);

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-class InsertSort {
+class SelectionSort {
 
   constructor(items) {
     this.items = items || []
@@ -9,16 +9,20 @@ class InsertSort {
 
   sort() {
     let items = this.items
-    let preIndex, current
-    
-    for(let i=1; i<items.length; i++) {
-      preIndex = i - 1
-      current = items[i]
-      while(preIndex >= 0 && items[preIndex] > current) { 
-        items[preIndex + 1] = items[preIndex]
-        preIndex--
+    let len = items.length
+
+    for(let i=0; i<len; i++) {
+      let minIndex = i
+      
+      for(let j=i+1; j<len; j++) {
+        if (items[j] < items[minIndex]) {
+          minIndex = j
+        }
       }
-      items[preIndex + 1] = current
+
+      let temp = items[i]
+      items[i] = items[minIndex]
+      items[minIndex] = temp
     }
 
     return items
@@ -30,7 +34,7 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'values': [ 2,35,7,5,23,35,7,2342,789,7878,345,3,1,34,5,6,7,8 ],
+      'values': [ 1,2,23,2342,3,34,345,35,35,5,555,6,7,7,7,7878,789,8 ],
       'elements': []
     }
   }
@@ -42,16 +46,16 @@ export default class extends Component {
   }
 
   onClickHanlder() {
-    let ins = new InsertSort(this.state.values)
-    let elements = ins.sort()
+    let pop = new SelectionSort(this.state.values)
+    let elements = pop.sort()
     this.setState({
       elements
     })
   }
 
   componentDidMount() {
-    let ins = new InsertSort(this.state.values)
-    let elements = ins.sort()
+    let pop = new SelectionSort(this.state.values)
+    let elements = pop.sort()
     this.setState({
       elements
     })
@@ -74,7 +78,7 @@ export default class extends Component {
 
       <div>排序后值：</div>
       <div>{
-        JSON.stringify(this.state.elements, null, 2)
+        JSON.stringify(this.state.elements, null, 2).replace(/\"/g, '')
       }</div>
     </div>
   }

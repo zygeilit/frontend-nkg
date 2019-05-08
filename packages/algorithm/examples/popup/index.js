@@ -3,22 +3,25 @@ import React, { Component } from 'react'
 
 class Popup {
 
-  constructor(elements) {
-    this.elements = elements || []
+  constructor(items) {
+    this.items = items || []
   }
 
   sort() {
-    for(let ia=0; ia<this.elements.length; ia++) {
-      for(let i=0; i<this.elements.length; i++) {
-        let c = this.elements[i]
-        let n = this.elements[i + 1]
-        if (c > n) {
-          this.elements[i] = n
-          this.elements[i + 1] = c
+    let folen = this.items.length - 1
+    let items = this.items
+
+    for(let ia=0; ia<folen; ia++) {
+      for(let i=0; i<folen - ia; i++) {
+        if (items[i] > items[i + 1]) {
+          let temp = items[i]
+          items[i] = items[i + 1]
+          items[i + 1] = temp
         }
       }
     }
-    return this.elements
+
+    return items
   }
 }
 
@@ -27,7 +30,7 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'values': [ 2,35,7,5,23,35,7,2342,789,7878,345,3,1,34,5,6,7,8 ],
+      'values': [ 1,2,23,2342,3,34,345,35,35,5,555,6,7,7,7,7878,789,8 ],
       'elements': []
     }
   }
