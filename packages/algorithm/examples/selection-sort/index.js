@@ -13,13 +13,11 @@ class SelectionSort {
 
     for(let i=0; i<len; i++) {
       let minIndex = i
-      
       for(let j=i+1; j<len; j++) {
         if (items[j] < items[minIndex]) {
           minIndex = j
         }
       }
-
       let temp = items[i]
       items[i] = items[minIndex]
       items[minIndex] = temp
