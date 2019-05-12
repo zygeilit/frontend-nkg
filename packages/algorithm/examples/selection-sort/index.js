@@ -11,10 +11,10 @@ class SelectionSort {
     let items = this.items
     let len = items.length
 
-    for(let i=0; i<len; i++) {
+    for (let i=0; i<len; i++) {
       let minIndex = i
-      for(let j=i+1; j<len; j++) {
-        if (items[j] < items[minIndex]) {
+      for (let j=i+1; j<len; j++) {
+        if (items[minIndex] > items[j]) {
           minIndex = j
         }
       }

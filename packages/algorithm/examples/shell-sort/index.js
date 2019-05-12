@@ -10,27 +10,26 @@ class ShellSort {
   sort() {
     let items = this.items
     let len = items.length
-    let temp
-    let gap = Math.floor(len / 2)
+    let gap = Math.floor(len/2)
 
     while (Math.floor(gap) > 0) {
-      
+
       for (let i=gap; i<len; i++) {
-        temp = items[i]
+        let current = items[i]
         let preIndex = i - gap
         
-        while (preIndex >=0 && items[preIndex] > temp) {
+        while (items[preIndex] >=0 && items[preIndex] > current) {
           items[preIndex + gap] = items[preIndex]
           preIndex -= gap
         }
-
-        items[preIndex + gap] = temp
+        
+        items[preIndex + gap] = current
       }
 
-      gap = Math.floor(gap / 2)
+      gap = Math.floor(gap/2)
     }
 
-    return items
+    return items  
   }
 }
 

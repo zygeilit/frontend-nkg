@@ -7,21 +7,43 @@ class Popup {
     this.items = items || []
   }
 
-  sort() {
-    let len = this.items.length
-    let items = this.items
+  merge(left, right) {
+    let result = []
 
-    for (let i=0; i<len; i++) {
-      for (let j=0; j<len - i; j++) {
-        if (items[j+1] < items[j]) {
-          let temp = items[j+1]
-          items[j+1] = items[j]
-          items[j] = temp
-        }
+    while (left.length > 0 && right.length > 0) {
+      if (left[0] < right[0]) {
+        result.push(left.shift())
+      } else {
+        result.push(right.shift())
       }
     }
 
-    return items
+    while (left.length) {
+      result.push(left.shift())
+    }
+
+    while (right.length) {
+      result.push(right.shift())
+    }
+
+    return result
+  }
+
+  sort(arr) {
+    // 递归参数
+    let len = arr.length
+    let items = arr
+
+    if (len < 2) {
+      return items
+    }
+
+    let middle = Math.floor(len/2)
+    let left = items.slice(0, middle)
+    let right = items.slice(middle)
+
+    // merge sort 使用
+    return this.merge(this.sort(left), this.sort(right))
   }
 }
 
@@ -51,7 +73,7 @@ export default class extends Component {
 
   componentDidMount() {
     let pop = new Popup(this.state.values)
-    let elements = pop.sort()
+    let elements = pop.sort(this.state.values)
     this.setState({
       elements
     })

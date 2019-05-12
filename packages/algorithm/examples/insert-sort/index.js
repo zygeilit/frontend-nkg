@@ -11,15 +11,13 @@ class InsertSort {
     let items = this.items
     let len = items.length
     
-    for(let i=1; i<len; i++) {
-      let preIndex = i-1
+    for (let i=0; i<len; i++) {
+      let preIndex = i - 1
       let current = items[i]
-      
-      while(preIndex >=0 && items[preIndex] > current) {
+      while (preIndex >= 0 && items[preIndex] > current) {
         items[preIndex + 1] = items[preIndex]
         preIndex--
       }
-      
       items[preIndex + 1] = current
     }
 
