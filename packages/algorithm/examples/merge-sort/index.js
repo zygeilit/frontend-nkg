@@ -11,18 +11,18 @@ class Popup {
     let result = []
 
     while (left.length > 0 && right.length > 0) {
-      if (left[0] < right[0]) {
+      if (left[0] > right[0]) {
         result.push(left.shift())
-      } else {
+      } {
         result.push(right.shift())
       }
     }
 
-    while (left.length) {
+    while(left.length) {
       result.push(left.shift())
     }
 
-    while (right.length) {
+    while(right.length) {
       result.push(right.shift())
     }
 
@@ -34,13 +34,13 @@ class Popup {
     let len = arr.length
     let items = arr
 
-    if (len < 2) {
-      return items
+    if (arr.length < 2) {
+      return arr
     }
 
     let middle = Math.floor(len/2)
-    let left = items.slice(0, middle)
-    let right = items.slice(middle)
+    let left = arr.slice(0, middle)
+    let right = arr.slice(middle)
 
     // merge sort 使用
     return this.merge(this.sort(left), this.sort(right))
