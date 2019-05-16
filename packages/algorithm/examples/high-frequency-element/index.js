@@ -1,32 +1,18 @@
 
 import React, { Component } from 'react'
+import PriorityQueue from './priority-queue'
 
-class PriorityQueue {
+class HighFrequencyElement {
 
-  constructor() {
-    this.items = []
-  }
-
-  add(item) {
-    if (!this.items.length) {
-      return this.items.push(item)
-    }
-    for(let i=0; i<this.items.length; i++) {
-      if(item < this.items[i]) {
-        let mi = this.items[i]
-        for(let j=i; j<this.items.length; j++) {
-          let temp = this.items[j+1]
-          this.items[j+1] = mi
-          mi = temp
-        }
-        break
+  topKFrequent(nums, k) {
+    let map = {}
+    for(let i=0; i<nums.length; i++) {
+      if(!map[i]) {
+        map[i] = map[i] + 1
+      } else {
+        map[i] = 1
       }
     }
-    console.log(this.items)
-  }
-
-  get() {
-    return this.items.shift()
   }
 }
 
@@ -65,7 +51,6 @@ export default class extends Component {
 
   render () {
     return <div>
-
       <div>输入框：</div>
       <input
         style={{
