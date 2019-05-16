@@ -25,4 +25,8 @@ export default class PriorityQueue {
   dequeue() {
     return this.maxHeap.extractMax()
   }
+
+  getItems() {
+    return this.maxHeap.items
+  }
 }
