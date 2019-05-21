@@ -1,8 +1,8 @@
-import LinkedList from "./linked-list";
+import LinkedListDummyHead from './linked-list-dummy-head'
 
 export default class LinkedListStack {
   constructor() {
-    this.list = new LinkedList()
+    this.list = new LinkedListDummyHead()
   }
 
   getSize() {
