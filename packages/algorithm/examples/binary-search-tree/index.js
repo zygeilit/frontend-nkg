@@ -6,7 +6,13 @@ export default class extends Component {
 
   componentDidMount() {
 
-    let items = [ 1, 123123,12312,4,3423,5,,432,12,3,54,8,9,,45,34,45,678,45,23,123,12,31234,235,3453,46,4567]
+    let items = []
+
+    // 数组中加入1w个元素
+    for(let i=0; i<10000; i++) {
+      items.push(Math.floor((Math.random()*10000) + 1))
+    }
+
     console.log(`数组长度：` + items.length)
 
     const bst = new BST()
@@ -15,11 +21,11 @@ export default class extends Component {
       bst.add(items[i])
     }
     
-    console.log(`使用 contains() 函数查找节点是否存在：` + 31234)
-    bst.contains(31234)
+    console.log(`使用 contains() 函数查找节点是否存在：` + items[500])
+    bst.contains(items[500])
 
     console.log(`二分查找树，中序遍历，排序：`)
-    bst.inOrder()
+    // bst.inOrder()
   }
 
   render () {
