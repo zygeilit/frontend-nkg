@@ -148,4 +148,153 @@ export default class BinarySearchTree {
     this._preOrder_private(node.left)
     this._preOrder_private(node.right)
   }
+
+  // 非递归前序遍历，使用辅助栈的数据结构，应用并不广泛
+  // 深度优先遍历
+  preOrderNR() {
+    const stack = [ this.root ]
+    while(!stack.length) {
+      let cur = stack.pop()
+      console.log(cur.e)
+      if (cur.right != null) stack.push(cur.right)
+      if (cur.left != null) stack.push(cur.left)
+    }
+  }
+
+  // 层序遍历，广度优先遍历
+  // 广度优先遍历，更快速的找到某个问题的解
+  levelOrder() {
+    const queue = [ this.root ]
+    while(!queue.length) {
+      let cur = queue.shift()
+      console.log(cur.e)
+      if (cur.left != null) queue.push(cur.left)
+      if (cur.right != null) queue.push(cur.right)
+    }
+  }
+
+  // 获取最小节点
+  minimum() {
+    if (this.size == 0) {
+      throw new Error(`BST is empty!`)
+    }
+    return _minimum_private(this.root)
+  }
+  _minimum_private(node) {
+    if (node.left == null) {
+      return node
+    }
+    return _minimum_private(node.left)
+  }
+
+  // 获取最大节点
+  maximum() {
+    if (this.size == 0) {
+      throw new Error(`BST is empty!`)
+    }
+    return _maximum_private(this.root)
+  }
+  _maximum_private(node) {
+    if (node.right == null) {
+      return node
+    }
+    return _maximum_private(node.right)
+  }
+
+
+  // 从二分搜索树中删除最小值所在的节点，返回最小值
+  removeMin() {
+    const ret = this.minimum()
+    this.root = this._removeMin_private(this.root)
+    return ret
+  }
+
+  // 删除掉已node为根的二分搜索树中最小节点
+  // 返回删除节点后新的二分搜索树的根
+  _removeMin_private(node) {
+    
+    if (node.left == null) {
+      let rightNode = node.right
+      node.right = null
+      this.size --
+      return rightNode // 返回删除节点后新的根
+    }
+
+    node.left = this._removeMin_private(node.left)
+    return node
+  }
+
+  // 从二分搜索树中删除最大值所在的节点，返回最小值
+  removeMax() {
+    const ret = this.maximum()
+    this.root = this._removeMax_private(this.root)
+    return ret
+  }
+
+  // 删除掉已node为根的二分搜索树中最大节点
+  // 返回删除节点后新的二分搜索树的根
+  _removeMax_private(node) {
+    
+    if (node.right == null) {
+      let leftNode = node.left
+      node.left = null
+      this.size --
+      return leftNode // 返回删除节点后新的根
+    }
+
+    node.right = this._removeMax_private(node.right)
+    return node
+  }
+
+  remove(e) {
+    this.root = this._remove_private(this.root, e)
+  }
+
+  // 删除已node为根的二分搜索树中的值为e的节点，递归算法
+  // 返回删除节点后新的二分搜索树的根
+  _remove_private(node, e) {
+    
+    if (node == null) {
+      return null
+    }
+
+    if (e < node.e) {
+      node.left = this._remove_private(node.left, e)
+      return node
+    } else if (e > node.e) {
+      node.right = this._remove_private(node.right, e)
+      return node
+    } else { // e == node.e
+      // 找到待删除的节点
+
+      // 左子树为空的情况，直接使用右子树根节点替换
+      if (node.left == null) {
+        let rightNode = node.right
+        node.right = null
+        this.size--
+        return rightNode
+      }
+
+      // 右子树为空的情况，直接使用左子树根节点替换
+      if (node.right == null) {
+        let leftNode = node.left
+        node.left == null
+        this.size--
+        return leftNode
+      }
+
+      // 待删除节点左右子树均不为空的情况
+      // 找到比待删除节点大的最小节点，即待删除节点右子树的最小节点
+      // 用这个节点顶替删除节点的位置
+      let successor = _minimum_private(node.right)
+      successor.right = this._removeMin_private(node.right)
+      // this.size++
+      successor.left = node.left
+
+      node.left = node.right = null
+      // this.size--
+
+      return successor
+    }
+  }
 }
