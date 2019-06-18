@@ -2,14 +2,20 @@
 import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import MainPage from '../pages/main.js'
+import { StaticRouter } from 'react-router-dom'
+import routers from '../routes'
 
 const app = express()
 app.use(express.static('public'))
 
-const content = renderToString(<MainPage />)
-
 app.get('/', (req, res) => {
+
+  const content = renderToString((
+    <StaticRouter location={req.path} content={{}}>
+      {routers}
+    </StaticRouter>
+  ))
+
   res.send(`
     <html>
       <head>
