@@ -1,25 +1,31 @@
 
 import express from 'express'
 import React from 'react'
+import StyleContext from 'isomorphic-style-loader/StyleContext'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
-import routers from '../routes'
+
+import App from '../app'
 
 const app = express()
 app.use(express.static('public'))
 
 app.get('*', (req, res) => {
 
-  const content = renderToString((
-    <StaticRouter location={req.path} content={{}}>
-      {routers}
-    </StaticRouter>
-  ))
+  // 获取所有组件的CSS
+  const css = new Set()
+  const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
+
+  const content = renderToString(
+    <StyleContext.Provider value={{ insertCss }}>
+      <App/>
+    </StyleContext.Provider>
+  )
 
   res.send(`
     <html>
       <head>
         <title>SSR</title>
+        <style>${[...css].join('\n')}</style>
       </head>
       <body>
         <div id="root">${content}</div>

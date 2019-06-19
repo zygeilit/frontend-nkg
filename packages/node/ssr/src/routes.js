@@ -1,12 +1,18 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-
 import Main from './pages/main'
-import Login from './pages/login'
+import Login from './pages/login/index'
 
-export default (
-  <div>
-    <Route path='/' exact component={Main}></Route>
-    <Route path='/login' exact component={Login}></Route>
-  </div>
-)
+export default [
+  {
+    'path': '/',
+    'exact': true,
+    'component': Main,
+    'loadData': Main.loadData,
+    'key': 'home'
+  }, {
+    'path': '/login',
+    'exact': true,
+    'component': Login,
+    'loadData': Login.loadData,
+    'key': 'login'
+  }
+]

@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Route } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
-import routes from '../routes' 
+import routers from '../routes' 
 
 const App = () => {
   return (
-    <BrowserRouter>{routes}</BrowserRouter>
+    <BrowserRouter>{ routers.map(route => <Route {...route}></Route>) }</BrowserRouter>
   )
 }
 
