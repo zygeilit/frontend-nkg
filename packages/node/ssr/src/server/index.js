@@ -21,11 +21,13 @@ app.get('*', (req, res) => {
     </StyleContext.Provider>
   )
 
+  console.log(css)
+
   res.send(`
     <html>
       <head>
         <title>SSR</title>
-        <style>${[...css].join('\n')}</style>
+        <style type="text/css">${[...css].join('\n')}</style>
       </head>
       <body>
         <div id="root">${content}</div>

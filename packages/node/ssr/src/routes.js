@@ -1,5 +1,5 @@
-import Main from './pages/main'
-import Login from './pages/login/index'
+import Main from './pages/main/index'
+import Login from './pages/login'
 
 export default [
   {
