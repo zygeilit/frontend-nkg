@@ -4,6 +4,13 @@ import Header from '../../components/header'
 import styles from './index.css'
 
 class Main extends React.Component {
+
+  componentWillMount() {
+    if (styles._getCss) {
+      this.props.context.css.push(styles._getCss())
+    }
+  }
+  
   render() {
     return <div>
       <Header />

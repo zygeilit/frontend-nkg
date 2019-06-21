@@ -29,6 +29,9 @@ module.exports = webpackMerge({
     }]
   },
   'plugins': [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new webpack.DefinePlugin({
+      '__isBrowser__': "true"
+    })
   ]
 }, baseConfig)

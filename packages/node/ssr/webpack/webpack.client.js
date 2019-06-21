@@ -24,5 +24,8 @@ module.exports = webpackMerge({
     }]
   },
   'plugins': [
+    new webpack.DefinePlugin({
+      '__isBrowser__': "false"
+    })
   ]
 }, baseConfig)

@@ -1,13 +1,13 @@
-import Main from './pages/main/index'
 import Login from './pages/login'
+import App from './app'
 
 export default [
   {
     'path': '/',
     'exact': true,
-    'component': Main,
-    'loadData': Main.loadData,
-    'key': 'home'
+    'component': App,
+    'loadData': App.loadData,
+    'key': 'app',
   }, {
     'path': '/login',
     'exact': true,

@@ -1,33 +1,30 @@
 
 import express from 'express'
-import React from 'react'
-import StyleContext from 'isomorphic-style-loader/StyleContext'
+import React, { Fragment } from 'react'
 import { renderToString } from 'react-dom/server'
-
-import App from '../app'
+import { StaticRouter, Route } from 'react-router-dom'
+import routers from '../routes'
 
 const app = express()
+
+// 设置静态资源获取路径
 app.use(express.static('public'))
 
 app.get('*', (req, res) => {
 
-  // 获取所有组件的CSS
-  const css = new Set()
-  const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
+  const context = { 'css': [] }
 
   const content = renderToString(
-    <StyleContext.Provider value={{ insertCss }}>
-      <App/>
-    </StyleContext.Provider>
+    <StaticRouter location={req.path} context={{}}>
+      { routers.map(route => <Route {...route}></Route>) }
+    </StaticRouter>
   )
-
-  console.log(css)
 
   res.send(`
     <html>
       <head>
         <title>SSR</title>
-        <style type="text/css">${[...css].join('\n')}</style>
+        <style type="text/css">${[...context.css].join('\n')}</style>
       </head>
       <body>
         <div id="root">${content}</div>
