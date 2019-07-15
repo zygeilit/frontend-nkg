@@ -30,7 +30,7 @@ export default class LinkedList {
   }
 
   add(index, value) {
-    if(index <0 || index > size) {
+    if(index < 0 || index > this.size) {
       throw new Error(`Add failed. Illegal index.`)
     }
     
@@ -39,11 +39,11 @@ export default class LinkedList {
     } else {
 
       let prev = this.head
-      for(let i=0; i<index-1; i++) {
+      for(let i=0; i<index-1; i++) { // 找打 index 前一个节点
         // let node = new Node(value)
         // node.next = prev.next
         // prev.next = node
-        prev.next = new Node(value, prev.next)
+        prev.next = new Node(value, /*next*/prev.next)
         this.size ++
       }
     }

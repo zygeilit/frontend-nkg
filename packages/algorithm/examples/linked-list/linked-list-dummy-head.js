@@ -12,19 +12,22 @@ class Node {
 export default class LinkedList {
 
   constructor() {
-    this.deummyHead = null
+    this.deummyHead = new Node(null, null)
     this.size = 0
   }
 
   getSize() {
     return this.size
   }
+
   isEmpty() {
     return this.size == 0
   }
+  
   addFirst(value) {
     this.add(0, value)
   }
+  
   addLast(value) {
     this.add(this.size, value)
   }
@@ -47,7 +50,7 @@ export default class LinkedList {
     if (index < 0 && index >= this.size) {
       throw new Error(`get failed. Illegal index.`)
     }
-    
+
     let current = this.deummyHead.next
     for(let i=0; i<index; i++) {
       current = current.next
