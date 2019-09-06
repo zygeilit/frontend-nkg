@@ -12,7 +12,7 @@ let res1 = []
 function *reqData1(url) {
   let data = yield fetch(url).then(r => r.json())
   // 控制转移
-  yield
+  // yield
   res1.push(data)
 }
 

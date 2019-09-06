@@ -1,0 +1,31 @@
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>页面生命周期</title>
+
+  <script>
+    function log(text) { console.log(text) }
+    log('initial readyState:' + document.readyState);
+
+    document.addEventListener('readstatechange', () => log('readyState:' + document.readyState))
+    document.addEventListener('DOMContentLoaded', () => log('DOMContentLoaded'))
+
+    window.onload = () => log('window onload')
+  </script>
+
+  
+</head>
+
+<body>
+  123
+
+  <iframe src="iframe.html" onload="log('iframe onload')"></iframe>
+  <img src="http://en.js.cx/clipart/train.gif" id="img">
+
+<script>
+    document.getElementById('img').onload = () => log('img onload');
+  </script>
+</body>
+
+</html>
