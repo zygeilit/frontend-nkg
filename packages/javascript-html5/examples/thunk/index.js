@@ -11,6 +11,10 @@ const thunkify = (fn) => {
   }
 }
 
+const foo = () => {
+
+}
+
 const fooThunk = thunkify(foo, 3, 4)
 
 export default class extends Component {
