@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <button id="test">Click me!</button>
+  <script>
+    var button = {
+      'clicked': false,
+      'click': () => {
+        this.clicked = true;
+        console.log(button.clicked)
+        if (this === window) {
+          console.log('In arrow function this === window')
+        }
+        if (window.clicked) {
+          console.log('clicked is stored in window')
+        }
+      }
+    }
+    document.getElementById('test').addEventListener('click', button.click)
+  </script>
+</body>
+
+</html>

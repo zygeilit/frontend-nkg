@@ -1,0 +1,28 @@
+
+.flex-form {
+  border: 1px solid #cccccc;
+  width: 350px;
+
+  .flex-from__row {
+    border: 1px solid red;
+    display: table-row;
+
+    .flex-from__row-column {
+      border: 1px solid blue;
+      display: table-cell;
+      text-align: right;
+
+      label {
+        display: inline-block;
+        max-width: 122px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      input {
+        margin-left: 20px;
+      }
+    }
+  }
+}
