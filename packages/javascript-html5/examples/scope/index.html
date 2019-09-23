@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+  <div id='box1' style="position: absolute;">First Box</div>
+
+  <script type="text/javascript">
+    function animateIt(elementId) {
+      var elem = document.getElementById(elementId)
+      var tick = 0
+      var timer = setInterval(function() {
+        if (tick < 100) {
+          elem.style.left = elem.style.top = tick + 'px'
+          tick += 1
+        } else {
+          clearInterval(timer)
+          if (tick == 100) console.log('Tick accessed via a closure.')
+          if (elem) console.log('Element also accessed via a closure.')
+          if (timer) console.log('Timer reference also obtained via a closure.')
+        }
+      }, 10)
+    }
+    animateIt('box1')
+  </script>
+ 
+  <script>
+
+    var outValue = 'samurai'
+    var later
+
+    function outerFunction() {
+      var innerValue = 'ninja'
+      function innerFunction() {
+        console.log(this)
+        if (outValue === 'samurai') console.log('I can see the samurai')
+        if (innerValue === 'ninja') console.log('I can see the ninja')
+      }
+      later = innerFunction
+    }
+
+    outerFunction()
+    later()
+
+  </script>
+</body>
+
+</html>
