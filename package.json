@@ -18,5 +18,9 @@
   "homepage": "https://github.com/zygeilit/frontend-nkg#readme",
   "devDependencies": {
     "lerna": "^3.13.4"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   }
 }
