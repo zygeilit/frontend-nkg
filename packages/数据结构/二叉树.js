@@ -1,72 +1,105 @@
 
 // var items = [undefined];
-var items = [undefined, 8, 5, 3, 9, 10, 43, 1, 5, 14, 22, 43, 1, 23, 3, 345, 43, 6, 43];
+// var items = [undefined, 8, 5, 3, 9, 10, 43, 1, 5, 14, 22, 43, 1, 23, 3, 345, 43, 6, 43];
 
-// 获取最后一个节点的父节点
-// shiftDown 对比左右子节点大小
-// 第一个元素是 undefined
-class Heap {
-    constructor(items) {
-        this.items = items;
-        let lastNotEmptyNodeIndex = this._getLastNotEmptyIndex();
-        for (let i = lastNotEmptyNodeIndex; i > 0; i--) {
-            this._shiftDown(i);
-        }
-    }
-    _shiftUp(index) {
-        let parentIndex = this._findParent(index);
-        if (parentIndex < 1) return;
-        if (this.items[parentIndex] < this.items[index]) {
-            this.swap(parentIndex, index);
-            this._shiftUp(parentIndex);
-        }
-    }
-    _shiftDown(index) {
-        if (this._findChildLeftIndex(index) > this.items.length - 1) return;
-        let targetIndex = this._findChildLeftIndex(index);
-        if (this._findChildRightIndex(index) <= this.items.length - 1 && this.items[this._findChildRightIndex(index)] > this.items[targetIndex]) {
-            targetIndex = this._findChildRightIndex(index);
-        }
-        if (this.items[targetIndex] > this.items[index]) {
-            this.swap(targetIndex, index);
-            this._shiftDown(targetIndex);
-        }
-    }
-    insert(value) {
-        this.items.push(value);
-        this._shiftUp(items.length - 1);
-    }
-    pop() {
-        let val = items[items.length - 1];
-        this.swap(items.length - 1, 1);
-        this.items.pop();
-        this._shiftDown(1);
-        return val;
-    }
-    _getLastNotEmptyIndex() {
-        return Math.floor((this.items.length - 1) / 2);
-    }
-    _findParent(index) {
-        return Math.floor(index / 2);
-    }
-    _findChildLeftIndex(index) {
-        return Math.floor(index * 2);
-    }
-    _findChildRightIndex(index) {
-        return Math.floor(index * 2 + 1);
-    }
-    swap(l, r) {
-        let temp = this.items[l];
-        this.items[l] = this.items[r];
-        this.items[r] = temp;
+class Node {
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+        this.left = null;
+        this.right = null;
     }
 }
-let heap = new Heap(items);
-console.log(heap.items);
-// heap.insert(5);
-heap.insert(9999);
-console.log(heap.items);
 
+class BST {
+    constructor(items) {
+        this.items = items;
+        this.root = null;
+        this.size = 0;
+    }
+    insert(key, value) {
+        this.root = this._insert(this.root, key, value);
+        this.size++;
+    }
+    _insert(node, key, value) {
+        if (!node) return new Node(key, value);
+        if (key == node.key) {
+            node.value = value;
+        } else if (key < node.value) {
+            node.left = this._insert(node.left, key, value);
+        } else {
+            node.right = this._insert(node.right, key, value);
+        }
+        return node;
+    }
+    search(key) {
+        return this._search(this.root, key);
+    }
+    _search(node, key) {
+        if (!node) return null;
+        if (key == node.key) {
+            return node;
+        } else if (key < node.key) {
+            return this._search(node.left, key);
+        } else {
+            return this._search(node.right, key);
+        }
+    }
+    contain() {
+        return this._contain(this.root);
+    }
+    _contain(node, key, value) {
+        if (!node) return false;
+        if (node.key == key) {
+            return true;
+        } else if (key < node.key) {
+            return this._contain(node.left, key, value);
+        } else {
+            return this._contain(node.right, key, value);
+        }
+    }
+    preOrder() {
+        this._preOrder(this.root);
+    }
+    _preOrder(node) {
+        if (node) {
+            console.log(node.key);
+            this._preOrder(node.left);
+            this._preOrder(node.right);
+        }
+    }
+    inOrder() {
+        this._inOrder(this.root);
+    }
+    _inOrder(node) {
+        if (node) {
+            this._inOrder(node.left);
+            console.log(node.key);
+            this._inOrder(node.right);
+        }
+    }
+    postOrder() {
+        this._postOrder(this.root);
+    }
+    _postOrder(node) {
+        if (node) {
+            this._postOrder(node.left);
+            this._postOrder(node.right);
+            console.log(node.key);
+        }
+    }
+    levelOrder() {
+        let queue = [this.root];
+        while(queue.length) {
+            let t = queue.pop();
+            console.log(t.key);
+            if (t.left) queue.push(t.left);
+            if (t.right) queue.push(t.right);
+        }
+    }
+}
+
+console.log(heap.items);
 
 // class Node {
 //     constructor(key, value) {
